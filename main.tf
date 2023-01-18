@@ -94,7 +94,7 @@ module "emr_on_eks" {
   iam_role_permissions_boundary = var.iam_role_permissions_boundary
   tags                          = var.tags
 
-  depends_on = [kubernetes_config_map.aws_auth]
+  depends_on = [module.aws_eks.cluster_id, data.http.eks_cluster_readiness[0]]
 }
 
 resource "kubernetes_config_map" "amazon_vpc_cni" {
