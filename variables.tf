@@ -367,6 +367,12 @@ variable "fargate_profiles" {
 #-------------------------------
 # aws-auth Config Map
 #-------------------------------
+variable "cluster_manage_aws_auth" {
+  description = "Determines whether the module manages aws_auth configmap"
+  type        = bool
+  default     = true
+}
+
 variable "map_accounts" {
   description = "Additional AWS account numbers to add to the aws-auth ConfigMap"
   type        = list(string)
